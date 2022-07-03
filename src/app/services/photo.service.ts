@@ -46,13 +46,17 @@ export class PhotoService {
       quality: 100,
     });
 
-    const savedImageFile = await this.savePicture(capturedPhoto);
-    this.data.unshift(savedImageFile);
+    this.dataExample.unshift({
+      filePath: 'locall',
+      webviewPath: capturedPhoto.webPath
+    })
+    // const savedImageFile = await this.savePicture(capturedPhoto);
+    // this.data.unshift(savedImageFile);
 
-    Storage.set({
-      key: this.PHOTO_STORAGE,
-      value: JSON.stringify(this.data)
-    });
+    // Storage.set({
+    //   key: this.PHOTO_STORAGE,
+    //   value: JSON.stringify(this.data)
+    // });
   }
 
   public async loadSaved() {
